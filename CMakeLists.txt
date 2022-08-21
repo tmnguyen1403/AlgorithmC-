@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 project(Hello)
 
 add_executable(sliding_window "Problems/sliding_window_maximum.cpp")
+add_executable(group_anagrams "Problems/Arrays_Hashing/group_anagrams.cpp")
 
 # Test BigEndian Modules
 # include (TestBigEndian)
