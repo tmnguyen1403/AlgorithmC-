@@ -26,6 +26,9 @@ deque or vector will be more efficient?
 Tested with leetcode, deque solution is the most efficient in terms of time and space
 incomparison to vector or queue
 
+Observing that Solution4 which uses no data structure and the solution is simpler run slower
+on leetcode, yet is the most efficient in space.
+
 std::move() also help reducing runtime
 */
 //Vector
@@ -141,5 +144,27 @@ public:
                 qAncestors.pop();
         }
         return pAncestors.front();
+    }
+};
+
+//Queue
+class Solution4 {
+public:
+    
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        auto commonRoot = root;
+
+        while (commonRoot) {
+            if (p->val < commonRoot->val && q->val < commonRoot->val) {
+                commonRoot = commonRoot->left;
+            }
+            else if (p->val > commonRoot->val && q->val > commonRoot->val) {
+                commonRoot = commonRoot->right;
+            }
+            else {
+                return commonRoot
+            }
+        }
+        return commonRoot;
     }
 };
